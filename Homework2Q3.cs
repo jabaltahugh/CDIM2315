@@ -1,4 +1,4 @@
-namespace Homework2Q3;
+using System;
 class Program
 {
  static void Main()
