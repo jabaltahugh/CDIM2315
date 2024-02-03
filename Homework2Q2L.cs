@@ -24,7 +24,7 @@ public class SmallestNumberFinder
           else
           {
           smallest = c;
-    }
+      }
     }
     else
     {
