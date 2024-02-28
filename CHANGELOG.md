@@ -2,3 +2,4 @@
 01/22/2024: uploaded the Homework 1 file.
 02/02/2024: Uploaded Homework 2 Q2
 02/02/2024: Uploaded Homework 2 Q3
+02/28/2024: Uploaded Homework 6
