@@ -1,0 +1,64 @@
+using System;
+using System.Collections.Generic;
+
+class Student
+{
+    private int studentID;
+    private string studentName;
+
+    public int StudentID { get { return studentID; } }
+    public string StudentName { get { return studentName; } }
+
+    public static List<Student> studentList = new List<Student>();
+
+    public Student(int studentID, string studentName)
+    {
+        this.studentID = studentID;
+        this.studentName = studentName;
+        studentList.Add(this);
+    }
+
+    public void PrintInfo()
+    {
+        Console.WriteLine("Student ID: " + studentID + " Name: " + studentName);
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Student student1 = new Student(111, "Alice");
+        Student student2 = new Student(222, "Bob");
+        Student student3 = new Student(333, "Cathy");
+        Student student4 = new Student(444, "David");
+
+        Dictionary<string, double> gradebook = new Dictionary<string, double>();
+        gradebook.Add("Alice", 4.0);
+        gradebook.Add("Bob", 3.6);
+        gradebook.Add("Cathy", 2.5);
+        gradebook.Add("David", 1.8);
+
+        if (!gradebook.ContainsKey("Tom"))
+        {
+            gradebook.Add("Tom", 3.3);
+        }
+
+        double totalGPA = 0;
+        foreach (var gpa in gradebook.Values)
+        {
+            totalGPA += gpa;
+        }
+        double averageGPA = totalGPA / gradebook.Count;
+
+        Console.WriteLine("Average GPA: " + averageGPA);
+
+        foreach (var student in Student.studentList)
+        {
+            if (gradebook.ContainsKey(student.StudentName) && gradebook[student.StudentName] > averageGPA)
+            {
+                student.PrintInfo();
+            }
+        }
+    }
+}
